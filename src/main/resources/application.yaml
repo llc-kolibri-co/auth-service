@@ -10,7 +10,7 @@ token:
 
 module:
   user:
-    service-url: http://user-service:8082
+    service-url: http://188.120.229.201:8082
 
 server:
   port: 8083
