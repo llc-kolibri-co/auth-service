@@ -3,7 +3,7 @@ services:
   auth:
     image: ghcr.io/llc-kolibri-co/auth-service:latest
     ports:
-      - "8083:8083"
+      - "8085:8085"
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://188.120.229.201:5433/hammi
       - SPRING_DATASOURCE_USERNAME=hammi
