@@ -4,10 +4,6 @@ services:
     image: ghcr.io/llc-kolibri-co/auth-service:latest
     ports:
       - "8085:8085"
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://188.120.229.201:5433/hammi
-      - SPRING_DATASOURCE_USERNAME=hammi
-      - SPRING_DATASOURCE_PASSWORD=hammi
 
 networks:
   app-network:

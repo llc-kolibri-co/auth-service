@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://188.120.229.201:5433/hammi
+    url: jdbc:postgresql://89.150.34.60:5433/hammi
     username: hammi
     password: hammi
 token:
