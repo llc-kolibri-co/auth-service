@@ -5,6 +5,7 @@ import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
 import io.jsonwebtoken.io.Decoders
 import io.jsonwebtoken.security.Keys
+import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.stereotype.Service
@@ -17,6 +18,8 @@ import java.util.*
 class JwtService(
     private val userService: UserService
 ) {
+    var logger = LoggerFactory.getLogger(JwtService::class.java)
+
     @Value("\${token.signing.key}")
     private lateinit var jwtSigningKey: String
 
@@ -62,8 +65,9 @@ class JwtService(
         return try {
             val userName = extractUserName(token)
             val userDetails = userService.userDetailsService().loadUserByUsername(userName)
+            logger.info("Получен UserDetails пользователя по username = ${userName}")
             val isAuthenticated = (userName == userDetails.username) && !isTokenExpired(token)
-
+            logger.info("Проверка аутентификации пользователя")
             CheckTokenAuthenticationResponse(isAuthenticated = isAuthenticated, userDetails = userDetails)
         } catch (e: Exception) {
             CheckTokenAuthenticationResponse(isAuthenticated = false)

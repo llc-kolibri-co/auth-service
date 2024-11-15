@@ -33,6 +33,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.cloud:spring-cloud-starter-openfeign:4.1.0")
     implementation("org.postgresql:postgresql")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.2")
+
 
     //other
     implementation("io.jsonwebtoken:jjwt-api:0.12.3")
