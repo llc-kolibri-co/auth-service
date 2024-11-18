@@ -50,7 +50,7 @@ class AuthenticationService(
             email = user.email
         )
         userServiceFeignClient.createUserInfo(userInfo)
-        logger.info("Отправлен запрос в другой сервис на создание сущности пользователя UserInfoEntity, request = ${userInfo.toJson()}")
+        logger.info("Успешно отправлен запрос на создание информации по пользователю. Запрос /api/user/info, request = ${userInfo.toJson()}")
         val jwt = jwtService.generateToken(user)
         logger.info("Сгенерирован jwt токен по сущности пользователя UsersEntity")
         return JwtAuthenticationResponse(jwt)
